@@ -1,0 +1,86 @@
+//
+   Created by Administrator on 2016/1/21 0021.
+
+extends ../layout_nomenu
+block content
+    script(src='/javascripts/game/screen.js')
+    div#target
+    script.
+        MyScreen.showToupiao8([
+            {
+                zuoWei: '7',
+                huiYuan: '狼人'
+            }
+        ]);
+//        MyScreen.showToupiao5([
+//            {
+//                zuoWei:'3'
+//            }
+//        ]);
+//        MyScreen.showToupiao1([
+//            {
+//                zuoWei:'14',
+//                huiYuan:'猎人',
+//            },
+//            {
+//                zuoWei:'5',
+//                huiYuan:'乌鸦'
+//            }
+//        ]);
+        MyScreen.showYuyanjia2([
+            {
+                touXiang:'/pictures/lang.jpg',
+                zuoWei:'11',
+                huiYuan:'乌鸦',
+                shenFen:'/pictures/shenfen/wuya.jpg'
+            }
+        ])
+//        MyScreen.showNvwu3([
+//            {
+//                touXiang:'/pictures/lang.jpg',
+//                zuoWei:'15',
+//                huiYuan:'猎人'
+//            }
+//        ]);
+//        MyScreen.showNvwu2([
+//            {
+//                touXiang:'/pictures/lang.jpg',
+//                zuoWei:'11',
+//                huiYuan:'乌鸦'
+//            }
+//        ]);
+        MyScreen.showNvwu1([
+            {
+                touXiang:'/pictures/lang.jpg',
+                zuoWei:'17',
+                huiYuan:'狼人'
+            }
+        ]);
+//        MyScreen.showLangren([
+//            {
+//                touXiang:'/pictures/lang.jpg',
+//                zuoWei:'15',
+//                huiYuan:'猎人'
+//            }
+//        ]);
+
+//        MyScreen.showRuzuoScreen([
+//            {
+//                touXiang: '/pictures/lang.jpg',
+//                huiYuan: '尹志平',
+//                dengJi: '4级',
+//                jiFen: 4500,
+//                shenFen: '狼人'
+//            },
+//            {
+//                touXiang: '/pictures/lang.jpg',
+//                huiYuan: '李思',
+//                dengJi: '5级',
+//                jiFen: 5600,
+//                shenFen: '猎人'
+//            },
+//
+//        ]);
+
+
+//        MyScreen.showRuzuoScreen();

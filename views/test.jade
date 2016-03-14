@@ -1,0 +1,22 @@
+//
+   Created by fy on 16-1-7.
+extends layout_nomenu
+
+block content
+    form#xx
+        input(name='x',value='x')
+        input(name='y',value='x')
+        input(name='z',value='x')
+    script.
+        var data = _getFormData($('#xx'));
+        MemberIndex.saveXX(data, function (result) {
+            console.log(result);
+        })
+        MemberIndex.checkUserExits('151231003', function (result) {
+            if (result && !result.err) {
+                console.log(result.data);
+            } else {
+                console.error(result.err);
+            }
+        });
+

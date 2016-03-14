@@ -1,0 +1,30 @@
+.row
+    .col-xs-12
+        iframe#myIframe(name='myIframe', width='0', height='0', style='display: none;')
+        form#editForm.form-horizontal(method='post',role='form',target='myIframe')
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='code')  房间号
+                .col-sm-9
+                    input#memberCode.col-xs-10.col-sm-5(type='text', name='code', placeholder='房间号', maxlength=20)
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='member_id')  购买人
+                .col-sm-9
+                    input#member_id.col-xs-10.col-sm-5(type='text', name='member_id')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='goods_id')   商品
+                .col-sm-9
+                    input#goods_id.col-xs-10.col-sm-5(type='text', name='goods_id')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='sum')   数量
+                .col-sm-9
+                    input#sum.col-xs-10.col-sm-5(type='text', name='sum')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4

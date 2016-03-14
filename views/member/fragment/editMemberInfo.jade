@@ -1,0 +1,103 @@
+//
+   Created by fy on 15-12-22.
+    编辑会员信息
+.row(style='height:300px;overflow:auto;')
+    .col-xs-12
+        iframe#myIframe(name='myIframe', width='0', height='0', style='display: none;')
+        form#editForm.form-horizontal(action='#{action}',method='post',role='form',target='myIframe',enctype='multipart/form-data')
+            input(type='hidden',name='id',value='#{memberId}')
+            span#spanName(style='margin-left: 366px; color:red;')
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='code')  会员编号
+                .col-sm-9
+                    input#code.col-xs-10.col-sm-5(type='number', name='code', value='#{code}',readonly='true')
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='grade')  会员等级
+                .col-sm-9
+                    select#grade.col-xs-10.col-sm-5(type='number', name='grade', value='#{grade}')
+                        option(value='0') 普通
+                        option(value='1') 白金
+                        option(value='2') 黑金
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='userName')  姓名
+                .col-sm-9
+                    input#userName.col-xs-10.col-sm-5(type='text', name='userName', value='#{userName}')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+                    span.has-warning
+                        span.help-block.col-xs-12.col-sm-reset.inline 必须填写，长度在2-25位之间
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='name')  会员昵称
+                .col-sm-9
+                    input#name.col-xs-10.col-sm-5(type='text', name='name', value='#{name}',onblur='usernameValidate(this.value);')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+                    span.has-warning
+                        span.help-block.col-xs-12.col-sm-reset.inline 必须填写，长度在2-25位之间
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='image_url')  头像
+                .col-sm-9
+                    input#image_url.col-xs-10.col-sm-5(type='file',accept="image/*", name='image_url')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+                    img#image_url(src='#{image_url}', style='width:90px; height:90px')
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='birthday')
+                .col-sm-9
+                    input#birthday.col-xs-10.col-sm-5(type='text', name='birthday',hidden='true' value='#{birthday}')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='phone')  手机
+                .col-sm-9
+                    input#phone.col-xs-10.col-sm-5(type='number', name='phone', value='#{phone}')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+                    span.has-warning
+                        span.help-block.col-xs-12.col-sm-reset.inline 请正确填写手机号码
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='wechatNum')  微信号
+                .col-sm-9
+                    input#wechatNum.col-xs-10.col-sm-5(type='number', name='wechatNum', value='#{wechatNum}')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+                    span.has-warning
+                        span.help-block.col-xs-12.col-sm-reset.inline 请正确填写微信号
+            if auth == '管理员'
+                .space-4
+                .form-group
+                    label.col-sm-3.control-label.no-padding-right(for='integration')  积分
+                    .col-sm-9
+                        input#integration.col-xs-10.col-sm-5(type='number', name='integration', value='#{integration}')
+                        //span.help-inline.col-xs-12.col-sm-7
+                          span.middle 请填写数字
+            else
+                .space-4.hide
+                .form-group.hide
+                    label.col-sm-3.control-label.no-padding-right(for='integration')  积分
+                    .col-sm-9
+                        input#integration.col-xs-10.col-sm-5(type='number', name='integration', value='#{integration}')
+                        //span.help-inline.col-xs-12.col-sm-7
+                          span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='status')  状态
+                .col-sm-9
+                    select#status.col-xs-10.col-sm-5(type='number', name='status', value='#{status}')
+                        option(value='1') 有效
+                        option(value='0') 停用
+                        option(value='2') 退卡
+                        option(value='3') 挂失
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+

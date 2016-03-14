@@ -1,0 +1,73 @@
+//
+   Created by fy on 15-12-23.
+
+extends ../layout_nomenu
+
+block append css
+
+    //link(rel='stylesheet', href='/assets/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/assets/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/gridstack/dist/gridstack.css')
+    link(rel='stylesheet', href='/gridstack/dist/gridstack-extra.css')
+    style.
+        .grid-stack {
+            margin: 30px 0;
+            background: lightgoldenrodyellow;
+        }
+
+        .grid-stack-item-content {
+            color: #2c3e50;
+            text-align: center;
+            background-color: #18bc9c;
+            cursor: context-menu;
+            /*height: 40px!important;*/
+            /*min-height: 40px!important;*/
+        }
+
+        /*.grid-stack-item{*/
+        /*height: 40px!important;*/
+        /*min-height: 40px!important;*/
+        /*}*/
+
+block append script
+    script(src='/jquery-ui/jquery-ui.min.js')
+    script(src='/lodash/lodash.js')
+    script(src='/gridstack/dist/gridstack.js')
+    script(src='/bootstrap-contextmenu/bootstrap-contextmenu.js')
+    script(src='/underscore/underscore-min.js')
+    script(type='text/javascript').
+        var roomId = '#{roomId}';
+
+block content
+    .main-content
+        .page-content
+            .page-header
+            .row
+                .col-xs-12
+                    div.pull-right(style='z-index:9999;')
+                        a#add-grid.btn.btn-default(href='javascript:void;') 添加
+                        a#save-grid.btn.btn-default(href='javascript:void;') 保存
+                        a#load-grid.btn.btn-default.hide(href='javascript:void;') 加载
+                        a#clear-grid.btn.btn-default(href='javascript:void;') 清空
+                        a#back.btn.btn-default(href='javascript:window.history.back();') 返回
+                    h4 设置房间(#{code})布局
+                    br
+                    .grid-stack
+
+                    hr
+
+                    #context-menu
+                        ul.dropdown-menu(role='menu')
+                            li
+                                a(tabindex='-1', href='javascript:void(0)') 删除
+                            li
+                                a(tabindex='-1', href='javascript:void(0)') 修改名称
+
+                    #dialog-message.ui-dialog-content.ui-widget-content(style='width: auto; min-height: 19px; max-height: none; height: auto; display:none;')
+                        form#nameForm(onsubmit='return false;')
+                            span.input-icon
+                            input.nav-search-input(type='text', name='name', placeholder='新名称', maxlength=20)
+
+                    textarea#saved-data.hide(cols='100', rows='20', readonly='readonly')
+
+    script(src='/javascripts/room/layout.js')

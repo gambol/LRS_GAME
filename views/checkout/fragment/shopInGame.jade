@@ -1,0 +1,34 @@
+//
+   Created by fy on 15-12-22.
+    游戏中购买
+.row
+    .col-xs-12
+        iframe#myIframe(name='myIframe', width='0', height='0', style='display: none;')
+        form#shopForm.form-horizontal(method='post',role='form',action='#{action}',target='myIframe')
+            input#submit.hide(type='submit')
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='code')  房间号
+                .col-sm-9
+                    input#memberCode.col-xs-10.col-sm-5(type='number', name='code', placeholder='房间号', maxlength=20)
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='seat_code')  座位号
+                .col-sm-9
+                    input#seat_code.col-xs-10.col-sm-5(type='number', name='seat_code',placeholder='请填写1-18之间的座位号')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='goodsName')   商品名称
+                .col-sm-9
+                    input#goodsName.col-xs-10.col-sm-5(type='text', name='goodsName',placeholder='关键词')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='sum')   数量
+                .col-sm-9
+                    input#sum.col-xs-10.col-sm-5(type='number', name='sum',placeholder='请正确填写数量',value=1)
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4

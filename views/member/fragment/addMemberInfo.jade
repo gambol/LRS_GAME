@@ -1,0 +1,88 @@
+//
+   Created by fy on 15-12-22.
+    新增会员信息
+.row(style='height:300px;overflow:auto;')
+    .col-xs-12
+        iframe#myIframe(name='myIframe', width='0', height='0', style='display: none;')
+        form#addForm.form-horizontal(action='#{action}',method='post',role='form',target='myIframe',enctype='multipart/form-data')
+            input#submit.hide(type='submit')
+            span#spanName(style='margin-left: 366px; color:red;')
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='code')  会员编号
+                .col-sm-9
+                    input#code.col-xs-10.col-sm-5(type='text', name='code',onblur='userValidate(this.value)' placeholder='会员编号')
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='userName')  姓名
+                .col-sm-9
+                    input#userName.col-xs-10.col-sm-5(type='text', name='userName', placeholder='姓名')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='name')  会员昵称
+                .col-sm-9
+                    input#name.col-xs-10.col-sm-5(type='text', name='name', placeholder='会员昵称',onblur='usernameValidate(this.value);')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='sex')  性别
+                .col-sm-9
+                    select#sex.col-xs-10.col-sm-5(type='text', name='sex')
+                        option(value='0') 男
+                        option(value='1') 女
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='image_url')  头像
+                .col-sm-9
+                    input#image_url.col-xs-10.col-sm-5(type='file',accept="image/*", name='image_url')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='phone')  手机
+                .col-sm-9
+                    input#phone.col-xs-10.col-sm-5(type='text', name='phone',pattern='^[1][358][0-9]{9}$',title='请填写正确的手机号',placeholder='请填写正确的手机号')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='wechatNum')  微信号
+                .col-sm-9
+                    input#wechatNum.col-xs-10.col-sm-5(type='text', name='wechatNum',placeholder='请填写正确的微信号')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='birthday')  生日
+                .col-sm-9
+                    input#birthday.col-xs-10.col-sm-5(type='date', name='birthday', placeholder='请填写日期')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4.hide
+            .form-group.hide
+                label.col-sm-3.control-label.no-padding-right(for='integration')  积分
+                .col-sm-9
+                    input#integration.col-xs-10.col-sm-5(type='number', name='integration',value='#{jifen}', placeholder='请填写数字')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='accountCash')  现金账户
+                .col-sm-9
+                    input#accountCash.col-xs-10.col-sm-5(type='number', name='accountCash',value='#{xianjin}', placeholder='请填写数字')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='giftCash')  赠送账户
+                .col-sm-9
+                    input#giftCash.col-xs-10.col-sm-5(type='number', name='giftCash',value='#{zengsong}', placeholder='请填写数字')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+
+

@@ -1,0 +1,153 @@
+//
+ Created by fy on 15-12-22.
+  结账
+.row(style='height:400px;overflow-y:auto;overflow-x:hidden;')
+    .col-xs-12
+        iframe#myIframe(name='myIframe', width='0', height='0', style='display: none;')
+        form#checkout.form-horizontal(method='post',role='form',action='#{action}',target='myIframe')
+            .form-group
+                .row
+                    .col-md-6(style="padding-right:5px;")
+                        .profile-user-info.profile-user-info-striped
+                            .profile-info-row
+                                .profile-info-name  姓名
+                                .profile-info-value
+                                    span#userName
+                            .profile-info-row
+                                .profile-info-name  订单编号
+                                .profile-info-value
+                                    span#orderCode
+                            .profile-info-row
+                                .profile-info-name  会员编号
+                                .profile-info-value
+                                    span#memberCode1
+                            .profile-info-row
+                                .profile-info-name  游戏积分
+                                .profile-info-value
+                                    span#jiFen
+                                    span 分
+                            .profile-info-row
+                                .profile-info-name  会员等级
+                                .profile-info-value
+                                    span#dengJi
+                                    span 级
+                            .profile-info-row
+                                .profile-info-name  账户余额
+                                .profile-info-value
+                                    span#accountCash
+                                    span 元
+                            .profile-info-row
+                                .profile-info-name  商品消费
+                                .profile-info-value
+                                    span#goodsTotalPrice
+                                    span 元
+                    .col-md-6(style="padding-left:5px;")
+                        .profile-user-info.profile-user-info-striped
+                            .profile-info-row
+                                .profile-info-name  开始时间
+                                .profile-info-value
+                                    span#startTime
+                                        a#startTimeBtn(style='cursor:pointer;text-decoration:underline;') 开始计时
+                            .profile-info-row
+                                .profile-info-name  结束时间
+                                .profile-info-value
+                                    span#endTime
+                                        a#endTimeBtn(style='cursor:pointer;text-decoration:underline;') 结束计时
+                            .profile-info-row
+                                .profile-info-name  游戏时长
+                                .profile-info-value
+                                    span#totalTime
+                                        span#totalTimeInput 请先结束计时
+                            .profile-info-row
+                                .profile-info-name  游戏打折
+                                .profile-info-value
+                                    span#zheKou ?
+                                    span 折
+                            .profile-info-row
+                                .profile-info-name  游戏折后
+                                .profile-info-value
+                                    span#zheHou ?
+                                    span 元
+                            .profile-info-row
+                                .profile-info-name  游戏余额
+                                .profile-info-value
+                                    span#giftCash ?
+                                    span 元
+                            .profile-info-row
+                                .profile-info-name  游戏消费
+                                .profile-info-value
+                                    span#money ?
+                                    span 元
+
+            //div(class='ui-jqgrid-sortable')
+                | 账户余额:
+                input(name='Fruit', type='text',id="accountCash", value='', disabled='true')
+                | 元
+                | 游戏余额:
+                input(name='Fruit', type='text',id="giftCash", disabled='true', value='')
+                | 元
+            .row
+                .col-md-6
+                    label
+                        small.lighter(style='display: inline-block; width: 90px;text-align:right;') 现金应付:
+                        input(name='accountCash', type='number',id="accountCash1",value="0")
+                .col-md-6
+                    label
+                        small.lighter(style='display: inline-block; width: 90px;text-align:right;') 游戏应付:
+                        input(name='giftCash1', type='number',id="giftCash1",value="0")
+            //.row(class='ui-jqgrid-sortable')
+                | 现金应付:
+                | 元
+                | 游戏应付:
+                | 元
+            div
+                //| 游戏消费：
+                //input(name='Fruit', type='text',id='money' value='', disabled='true')
+                //| 元
+                //hr
+                table.table
+                    thead
+                        tr
+                            th 商品名称
+                            th 价格
+                            th 数量
+                            th 小计
+                    tbody#goodsList
+                        tr
+                            td#startTime.col-md-3.control-label(class='ui-jqgrid-sortable')
+                            td#endTime.col-md-3.control-label(class='ui-jqgrid-sortable')
+                            td#totalTime.col-md-3.control-label(class='ui-jqgrid-sortable')
+
+            //div(class='ui-jqgrid-sortable')
+            //    | 商品消费：
+            //    input(name='Fruit', type='text',id="goodsTotalPrice" value='', disabled='true')
+            //    | 元
+            //div
+            //    hr
+            //div(class='ui-jqgrid-sortable')
+            //    | 消费总计：
+            //    input(name='Fruit', type='text',id="totalMoney" value='', disabled='true')
+            //    | 元
+            //div
+            //div(class='ui-jqgrid-sortable')
+            //    | 实收金额：
+            //    input(name='Fruit', type='text', value='', id="getMoney",disabled='true')
+            //    | 元
+            //div
+            //    hr
+            //div
+
+            //div(class='ui-jqgrid-sortable')
+            //    | 游戏积分:
+            //    input(name='jiFen', type='text',id="jiFen",readonly=true)
+            //    | 分
+            //    | 会员等级:
+            //    input(name='dengJi', type='text',id="dengJi",readonly=true)
+            //    | 级
+            //div(class='ui-jqgrid-sortable')
+            //    | 游戏打折:
+            //    input(name='zheKou', type='text',id="zheKou",readonly=true)
+            //    | 折
+            //    | 游戏折后:
+            //    input(name='giftCash', type='text',id="zheHou",readonly=true,value=0)
+            //    | 元

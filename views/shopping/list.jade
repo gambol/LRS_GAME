@@ -1,0 +1,97 @@
+//
+   Created by caoyue on 16-01-05.
+extends ../layout_nomenu
+
+block append script
+    script(type='text/javascript',src="javascripts/fragment/addMemberInfo.js")
+    script(type='text/javascript',src="javascripts/fragment/editGoodsInfo.js")
+block content
+    .main-content
+        #breadcrumbs.breadcrumbs
+            script(type='text/javascript').
+                try {
+                    ace.settings.check('breadcrumbs', 'fixed')
+                } catch (e) {
+                }
+            ul.breadcrumb
+                li
+                    i.icon-home.home-icon
+                    a(href='#') Home
+                li
+                    a(href='#') Tables
+                li.active jqGrid plugin
+            // .breadcrumb
+            #nav-search.nav-search
+                form.form-search
+                    span.input-icon
+                        input#nav-search-input.nav-search-input(type='text', placeholder='Search ...', autocomplete='off')
+                        i.icon-search.nav-search-icon
+            // #nav-search
+        .page-content
+            .page-header
+            // /.page-header
+            .row
+                .col-xs-12
+                    // PAGE CONTENT BEGINS
+                    form#jiesuan(method='post')
+    .form-group
+        table
+            tr
+                td.col-md-3.control-label  订单:
+                td #{code}
+                td.col-md-3.control-label 会员:
+                td memberId
+                td.col-md-3.control-label 姓名:
+                td #{userName}
+            tr
+                td.col-md-3.control-label 游戏消费:
+                td checkoutId
+                td.col-md-3.control-label 商品消费:
+                td checkoutId
+                td.col-md-3.control-label 总消费:
+                td checkoutId
+    div
+        | 优惠额:
+        select
+            option(value='') 金额
+            option(value='') 满一百减二十
+            option(value='') 无
+        input(disabled='true', value='10.00', style='width:70px;background: white')
+        | 元
+    div
+        | 应收额:checkoutId
+    div
+        | 实收额：
+        input(disabled='true', value='10.00元', style='width:70px;background: white')
+        label
+            input(name='Fruit', type='checkbox', value='')
+            | 现金账户
+        label
+            input(name='Fruit', type='checkbox', value='')
+            | 现金
+        label
+            input(name='Fruit', type='checkbox', value='')
+            | 赠送账户
+        label
+            input(name='Fruit', type='checkbox', value='')
+            | 多样结算
+    div(style='border:1px solid #e5e5e5;')
+        div
+            | 赠送账户：
+            input(name='Fruit', type='text', value='')
+            | 现金账户：
+            input(name='Fruit', type='text', value='')
+        div
+            | 现金：  
+            input(name='Fruit', type='text', value='')
+    div
+        | 找零：  
+        input(name='Fruit', type='text', value='10元', style='border:0px solid #e5e5e5;background: white;', disabled='true')
+    div
+        | 账户余额：
+        input(name='Fruit', type='text', value='', disabled='true')
+        | 赠送账户余额：
+        input(name='Fruit', type='text', disabled='true', value='')
+    style.
+    script(type='text/javascript',src="javascripts/shopping/list.js")
+    script(type="text/javascript") goodsInit();

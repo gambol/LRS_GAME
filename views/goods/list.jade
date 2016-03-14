@@ -1,0 +1,76 @@
+//
+   Created by caoyue on 16-01-05.
+extends ../layout_nomenu
+
+block append script
+    script(type='text/javascript',src="javascripts/fragment/addMemberInfo.js")
+    script(type='text/javascript',src="javascripts/fragment/editGoodsInfo.js")
+block content
+    .main-content
+        #breadcrumbs.breadcrumbs
+            script(type='text/javascript').
+                try {
+                    ace.settings.check('breadcrumbs', 'fixed')
+                } catch (e) {
+                }
+            ul.breadcrumb
+                li
+                    i.icon-home.home-icon
+                    a(href='#') Home
+                li
+                    a(href='#') Tables
+                li.active jqGrid plugin
+            // .breadcrumb
+            #nav-search.nav-search
+                form.form-search
+                    span.input-icon
+                        input#nav-search-input.nav-search-input(type='text', placeholder='Search ...', autocomplete='off')
+                        i.icon-search.nav-search-icon
+            // #nav-search
+        .page-content
+            .page-header
+            // /.page-header
+            .row
+                .col-xs-12
+                    // PAGE CONTENT BEGINS
+                    form#search-form-id
+                        table.searchTable
+                            tr
+                                td
+                                    | 商品名称：
+                                td
+                                    input.col-xs-10.col-sm-5(type='text' , name='goodsName', placeholder='')
+                                //td
+                                //   | 商品编号：
+                                //td
+                                //   input.col-xs-10.col-sm-5(type='number' , name='code', placeholder='')
+                                td
+                                    | 库存数量：
+                                td
+                                    input.col-xs-10.col-sm-5(type='number' , name='stockNum', placeholder='')
+                            tr
+                                td
+                                    | 状态：
+                                td
+                                    select.col-xs-10.col-sm-5(type='text' ,style="width:180px;", name='status', placeholder='')
+                                        option(value='') 全部
+                                        option(value=0) 无效
+                                        option(value=1) 有效
+                                td
+                                td
+                                    button.btn.btn-info.btn-sm(type='submit',style="border-width:3px;")
+                                        i.icon-ok.bigger-110
+                                        |                                     搜索
+                                    button.btn.btn-sm(type='reset')
+                                        i.icon-undo.bigger-110
+                                        |                                     重置
+                    button#btn-add-category-id.btn.btn-info.btn-sm(onclick="addGoodsInfo(this)",style="margin-bottom:5px;width:180px;")
+                        i.icon-plus.bigger-110
+                        |                                     增加商品
+                    table#grid-table
+                    #grid-pager
+                    script(type='text/javascript').
+                        var $path_base = "/";
+    style.
+    script(type='text/javascript',src="javascripts/goods/list.js")
+    script(type="text/javascript") goodsPageInit();

@@ -1,0 +1,81 @@
+//
+   Created by fy on 15-12-29.
+   用户基本信息面板
+
+each info in infos
+    ul#psersonInfo.item-list
+        if info.memberCode
+            li.item-blue.clearfix
+                label.inline
+                    span.lbl 账号：#{info.memberCode}
+        if info.memberName
+            li.item-blue.clearfix
+                label.inline
+                    span.lbl 姓名：#{info.memberName}
+        if info.shenfen
+            li.item-pink.clearfix
+                label.inline
+                    span.lbl 身份：#{info.shenfen}
+        if info.sex
+            li.item-grey.clearfix
+                label.inline
+                    span.lbl 性别： #{info.sex}
+        if info.penalty
+            li.item-green.clearfix
+                label.inline
+                    span.lbl 罚分：#{info.penalty}
+        if typeof info.status != 'undefined'
+            p #{info.status}
+            each status in info.status
+                if (status == 1)
+                    li.item-pink.clearfix
+                        label.inline
+                            span.lbl  被巫师救活
+                if status == 2
+                    li.item-pink.clearfix
+                        label.inline
+                            span.lbl 死因：公投出局
+                if status == 3
+                    li.item-pink.clearfix
+                        label.inline
+                            span.lbl 死因：误睁眼出局
+                if status == 4
+                    li.item-pink.clearfix
+                        label.inline
+                            span.lbl 死因：被狼杀
+                if status == 5
+                    li.item-pink.clearifx
+                        label.inline
+                            span.lbl 死因：爆狼
+                if status == 6
+                    li.item-pink.clearifx
+                        label.inline
+                            span.lbl 死因：被女巫毒杀
+                if status == 7
+                    li.item-pink.clearifx
+                        label.inline
+                            span.lbl 死因：猎人枪杀
+                if status == 0
+                    li.item-pink.clearfix
+                        label.inline
+                            span.lbl  还活着
+        if info.wuyaFlag == 1
+            li.item-pink.clearfix
+                label.inline
+                    span.lbl 被乌鸦标记
+        if info.jiuhuoCount == 0
+            li.item-pink.clearfix
+                label.inline
+                    span.lbl 女巫的救活药用完了
+        if info.shasiCount == 0
+            li.item-pink.clearfix
+                label.inline
+                    span.lbl 女巫的毒药用完了
+        if info.beiYanRen == 1
+            li.item-pink.clearfix
+                label.inline
+                    span.lbl 被预言家验人
+        if info.cunzhang
+            li.item-pink.clearfix
+                label.inline
+                    span.lbl #{info.cunzhang}

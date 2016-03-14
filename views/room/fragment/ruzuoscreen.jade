@@ -1,0 +1,158 @@
+style.
+    .infobox-icon i img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .infobox-green {
+        background-color: whitesmoke;
+    }
+
+    .infobox {
+        width: 550px
+    }
+
+    .infobox > .infobox-data {
+        font-family: "黑体";
+        color: black;
+        min-width: 81px;
+    }
+
+    .infobox > .infobox-data > .infobox-content {
+        font-size: 13px;
+    }
+
+    .infobox > .stat.stat-success {
+        color: black;
+    }
+
+    .infobox > .stat.stat-success:before {
+        background-color: white;
+    }
+
+    .infobox > .stat.stat-success:after {
+        border-bottom-color: white;
+    }
+
+    .infobox > .infobox-data > .infobox-data-number {
+        font-size: 24px;;
+    }
+
+    .infobox-container {
+        margin-top: 18px;
+    }
+
+    .nicheng {
+        width: 98px;
+        overflow: hidden;
+        /*text-overflow:ellipsis;*/
+        /*white-space:nowrap;*/
+    }
+
+    .title {
+        font-family: "黑体";
+        font-size: 30px;
+        margin: 10px 0 0 0;
+        text-align: center;
+    }
+
+    .title img {
+        margin-top: -5px;
+        width: 70px;
+        height: 55px;
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .gundong {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        font-size: 27px;
+        font-family: "黑体";
+        font-weight: bold;
+        color: black;
+        z-index: 9999;
+    }
+.gundong
+    marquee(direction='left', behavior='scroll', onmouseover='this.stop()', onmouseout='this.start()')
+        | 游戏中请将手机静音，不要随意出入，在局玩家不得离开房间，尊重玩家发言，不要有任何场外行为，良好的游戏环境需要靠大家一起来维护。
+.row
+    .title
+        img(src="/pictures/logo.png")
+        | 本局玩家列表
+    .col-sm-6.infobox-container
+        each userInfo,index in leftColumn
+            .infobox.infobox-green
+                .infobox-icon
+                    //头像
+                    i
+                        if userInfo.touXiang
+                            img(src="#{userInfo.touXiang}")
+                .infobox-data
+                    //会员号
+                    span.infobox-data-number.nicheng(title="#{userInfo.huiYuan}") #{userInfo.huiYuan}
+                    //身份
+                    //if userInfo.shenFen
+                    //    .infobox-content #{userInfo.shenFen}
+                //        座位
+                .infobox-data.zuowei
+                    .infobox-content 座位号
+                    span.infobox-data-number #{userInfo.zuoWei}
+                //        等级
+                .infobox-data
+                    .infobox-content 等级
+                    span.infobox-data-number #{userInfo.dengJi}
+                .infobox-data.jifen
+                    .infobox-content 本次得分
+                    span.infobox-data-number #{userInfo.jiFen}
+                .infobox-data.jifen
+                    .infobox-content 累计积分
+                    span.infobox-data-number #{userInfo.leiJiJiFen}
+                if userInfo.shenFen
+                    .infobox-icon
+                        i
+                            if userInfo.touXiang
+                                img(src="#{userInfo.shenFen}")
+                        //.infobox-data.shenfen
+                        //    .infobox-content 身份
+                        //    img.infobox-data-number(src="#{userInfo.shenFen}",style="width:80px")
+    .col-sm-6.infobox-container
+        each userInfo,index in rightColumn
+            .infobox.infobox-green
+                .infobox-icon
+                    //头像
+                    i
+                        if userInfo.touXiang
+                            img(src="#{userInfo.touXiang}")
+                .infobox-data
+                    //会员号
+                    span.infobox-data-number.nicheng(title="#{userInfo.huiYuan}") #{userInfo.huiYuan}
+                    //身份
+                    //if userInfo.shenFen
+                    //    .infobox-content #{userInfo.shenFen}
+                //        座位
+                .infobox-data.zuowei
+                    .infobox-content 座位号
+                    span.infobox-data-number #{userInfo.zuoWei}
+                //        等级
+                .infobox-data
+                    .infobox-content 等级
+                    span.infobox-data-number #{userInfo.dengJi}
+                .infobox-data.jifen
+                    .infobox-content 本次得分
+                    span.infobox-data-number #{userInfo.jiFen}
+                .infobox-data.jifen
+                    .infobox-content 累计积分
+                    span.infobox-data-number #{userInfo.leiJiJiFen}
+                if userInfo.shenFen
+                    .infobox-icon
+                        i
+                            if userInfo.touXiang
+                                img(src="#{userInfo.shenFen}")
+                        //.infobox-data.shenfen
+                        //    .infobox-content 身份
+                        //    img.infobox-data-number(src="#{userInfo.shenFen}",style="width:80px")

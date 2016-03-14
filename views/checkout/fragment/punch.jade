@@ -1,0 +1,41 @@
+//
+   Created by fy on 15-12-22.
+    打卡
+.row
+    .col-xs-12
+        iframe#myIframe(name='myIframe', width='0', height='0', style='display: none;')
+        form#punchForm.form-horizontal(method='post',role='form',action='#{action}',target='myIframe')
+            input#submit.hide(type='submit')
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='orderCode1')  订单编号
+                .col-sm-9
+                    input#orderCode1.col-xs-10.col-sm-9(type='text', name='code',readonly="readonly", maxlength=20,width='60')
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='memberId')  会员编号
+                .col-sm-9
+                    input#memberId.col-xs-10.col-sm-9(type='text', name='member_id',placeholder="输入关键词")
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='ctime')   打卡时间
+                .col-sm-9
+                    input#ctime.col-xs-10.col-sm-9(type='text',readonly="readonly" name='ctime')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='sum_price')
+                .col-sm-9
+                    input#sum_price.col-xs-10.col-sm-5(type='text', name='sum_price',style='display: none;')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='status1')
+                .col-sm-9
+                    input#status1.col-xs-10.col-sm-5(type='text', name='status',style='display: none;')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4

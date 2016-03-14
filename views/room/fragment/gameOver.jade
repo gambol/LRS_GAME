@@ -1,0 +1,66 @@
+//
+   Created by fy on 15-12-28.
+    game over 对话框
+.row
+    .col-xs-12.col-sm-12
+        .control-group
+            .row
+                .col-sm-2
+                    label.control-label.bolder.blue 赢家
+                .col-sm-10
+                    .radio
+                        label
+                            input#langren.ace(name='whowin', value='langren', checked='checked', type='radio')
+                            span.lbl 狼人赢
+                        label
+                            input#haoren.ace(name='whowin', value='haoren', type='radio')
+                            span.lbl 好人赢
+.row
+    .col-sm-2
+        label.control-label.bolder.blue 得分情况
+    #langrenwin.col-sm-10
+        | 狼人得分:
+        label.inline
+            span.lbl=setting["score"]["langRen"]
+        br
+        | 身份得分:
+        label.inline
+            span.lbl=0
+        br
+        | 平民得分:
+        label.inline
+            span.lbl=0
+    #haorenwin.col-sm-10
+        | 身份得分:
+        label.inline
+            span.lbl=setting["score"]["shenFen"]
+        br
+        | 平民得分:
+        label.inline
+            span.lbl=setting["score"]["pingMin"]
+        br
+        | 狼人得分:
+        label.inline
+            span.lbl=0
+
+script.
+    $(function () {
+        handleWhoWin();
+        $("input[name=whowin]").click(function () {
+            handleWhoWin();
+        });
+    });
+    function handleWhoWin() {
+        switch ($("input[name=whowin]:checked").attr("id")) {
+            case "langren":
+                $("#langrenwin").show();
+                $("#haorenwin").hide();
+                break;
+            case "haoren":
+                $("#langrenwin").hide();
+                $("#haorenwin").show();
+                break;
+            default:
+                break;
+        }
+    }

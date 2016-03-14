@@ -1,0 +1,93 @@
+//
+   Created by caoyue on 16-01-05.
+extends ../layout_nomenu
+
+block append css
+    style.
+        .profile-info-name {
+            width: 90px;
+        }
+        .profile-info-value {
+            margin-left: 90px;
+        }
+block append script
+    script(type='text/javascript',src="javascripts/fragment/editCheckoutInfo.js")
+    script(type='text/javascript',src="javascripts/fragment/shopping.js")
+    script(type='text/javascript',src="javascripts/fragment/checkout.js")
+block content
+    .main-content
+        #breadcrumbs.breadcrumbs
+            script(type='text/javascript').
+                try {
+                    ace.settings.check('breadcrumbs', 'fixed')
+                } catch (e) {
+                }
+            ul.breadcrumb
+                li
+                    i.icon-home.home-icon
+                    a(href='#') Home
+                li
+                    a(href='#') Tables
+                li.active jqGrid plugin
+            // .breadcrumb
+            #nav-search.nav-search
+                form.form-search
+                    span.input-icon
+                        input#nav-search-input.nav-search-input(type='text', placeholder='Search ...', autocomplete='off')
+                        i.icon-search.nav-search-icon
+            // #nav-search
+        .page-content
+            .page-header
+            // /.page-header
+            .row
+                .col-xs-12
+                    // PAGE CONTENT BEGINS
+                    form#search-form-id
+                        table.searchTable
+                            tr
+                                td
+                                    | 会员编号：
+                                td
+                                    input.col-xs-10.col-sm-5(type='number' , name='code', placeholder='会员编号')
+                                td
+                                    | 会员名称：
+                                td
+                                    input.col-xs-10.col-sm-5(type='text' , name='userName', placeholder='会员名称')
+                            tr
+                                td
+                                    | 手机号码：
+                                td
+                                    input.col-xs-10.col-sm-5(type='number' , name='phone', placeholder='手机号')
+                                td
+                                    | 支付状态：
+                                td
+                                    select#status.col-xs-10.clo-sm-5(style="width:180px;", name='status',placeholder='')
+                                        option(value='-1') 全部
+                                        option(value='0',selected='selected') 待结算
+                                        option(value='1') 已结算
+                                        option(value='2') 赊账
+                                td
+                                    button.btn.btn-info.btn-sm(type='submit' id="search")
+                                        i.icon-ok.bigger-110
+                                        |                                     搜索
+                                    button.btn.btn-sm(type='reset')
+                                        i.icon-undo.bigger-110
+                                        |                                     重置
+                    div
+                        button#btn-add-category-id1.btn.btn-info.btn-sm(onclick="addOrderInfo(this)",style="margin-bottom:5px;margin-right:15px;width:180px;background-color:#abbac3;")
+                            i.icon-credit-card
+                            |                                     打卡
+                        button#btn-add-category-id.btn.btn-info.btn-sm(onclick="shopping(this)",style="margin-bottom:5px;width:180px;")
+                            i.icon-shopping-cart.bigger-110
+                            |                                     购买
+                    table#grid-table
+                    #grid-pager
+                    script(type='text/javascript').
+                        var $path_base = "/";
+    style.
+        .ui-autocomplete {
+            z-index: 1100;
+        }
+    script(type='text/javascript',src="javascripts/checkout/list.js")
+    script(type='text/javascript',src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.0/jquery-ui.js")
+    script(type="text/javascript") checkoutPageInit();

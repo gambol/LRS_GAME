@@ -1,0 +1,97 @@
+//
+   Created by caoyue on 16-01-05.
+extends ../layout_nomenu
+
+block append script
+    script(type='text/javascript',src="javascripts/fragment/addMemberInfo.js")
+    script(type='text/javascript',src="javascripts/fragment/editMemberInfo.js")
+    script.
+        var auth = '#{auth}';
+
+block content
+    .main-content
+        #breadcrumbs.breadcrumbs
+            script(type='text/javascript').
+                try {
+                    ace.settings.check('breadcrumbs', 'fixed')
+                } catch (e) {
+                }
+            ul.breadcrumb
+                li
+                    i.icon-home.home-icon
+                    a(href='#') Home
+                li
+                    a(href='#') Tables
+                li.active jqGrid plugin
+            // .breadcrumb
+            #nav-search.nav-search
+                form.form-search
+                    span.input-icon
+                        input#nav-search-input.nav-search-input(type='text', placeholder='Search ...', autocomplete='off')
+                        i.icon-search.nav-search-icon
+            // #nav-search
+        .page-content
+            .page-header
+            // /.page-header
+            .row
+                .col-xs-12
+                    // PAGE CONTENT BEGINS
+                    form#search-form-id
+                        table.searchTable
+                            tr
+                                td
+                                    | 会员编号：
+                                td
+                                    input.col-xs-10.col-sm-5(type='number' , name='code', placeholder='')
+                                td
+                                    | 姓名：
+                                td
+                                    input.col-xs-10.col-sm-5(type='text' , name='userName', placeholder='')
+                            tr
+                                td
+                                    | 手机：
+                                td
+                                    input.col-xs-10.col-sm-5(type='number' , name='phone', placeholder='')
+                                td
+                                    | 会员昵称：
+                                td
+                                    input.col-xs-10.col-sm-5(type="text",name="name",style='height:28px;')
+                            tr
+                                td
+                                    | 会员等级：
+                                td
+                                    select#level.col-xs-12.clo-sm-10(style="width:180px;", name='grade',placeholder='')
+                                        option(value='') 全部等级
+                                        option(value='0') 普通
+                                        option(value='1') 白金
+                                        option(value='2') 黑金
+                                td
+                                    | 状态：
+                                td
+                                    //0：失效，1：有效
+                                    select#status.col-xs-12.clo-sm-10(style="width:180px;", name='status',placeholder='')
+                                        option(value='')  全部
+                                        option(value='0') 停用
+                                        option(value='1') 有效
+                                        option(value='2') 退卡
+                                        option(value='3') 挂失
+
+                                td
+                                    button.btn.btn-info.btn-sm(type='submit',style="border-width:3px;")
+                                        i.icon-ok.bigger-110
+                                        |                                     搜索
+                                    button.btn.btn-sm(type='reset')
+                                        i.icon-undo.bigger-110
+                                        |                                     重置
+                    button#btn-add-category-id.btn.btn-info.btn-sm(onclick="addMemberInfo(this)",style="margin-bottom:5px;width:180px;")
+                        i.icon-plus.bigger-110
+                        |                                     添加会员
+                    table#grid-table
+                    #grid-pager
+                    script(type='text/javascript').
+                        var $path_base = "/";
+    style.
+    script(type='text/javascript',src="javascripts/member/index.js")
+    script(type="text/javascript").
+        var _height = 263;
+        memberPageInit();

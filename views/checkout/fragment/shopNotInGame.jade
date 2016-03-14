@@ -1,0 +1,45 @@
+//
+   Created by fy on 15-12-22.
+    游戏中购买
+.row
+    .col-xs-12
+        iframe#myIframe(name='myIframe', width='0', height='0', style='display: none;')
+        form#shopForm.form-horizontal(method='post',role='form',action='#{action}',target='myIframe')
+            input#submit.hide(type='submit')
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='member_id')
+                .col-sm-9
+                    input#memId.col-xs-10.col-sm-5(type='text',hidden='true', name='member_id', readonly="readonly")
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='Name')   姓名
+                .col-sm-9
+                    input#Name.col-xs-10.col-sm-5(type='text', name='userName',readonly="readonly")
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='goodsname')   商品名称
+                .col-sm-9
+                    input#goodsname.col-xs-10.col-sm-5(type='text', name='goodsName',placeholder='关键词')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='sum')   数量
+                .col-sm-9
+                    input#sum1.col-xs-10.col-sm-5(type='number', name='sum',placeholder='请填入数字',value=1)
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+                    span.has-warning
+                        span.help-block.col-xs-12.col-sm-reset.inline 数量必须填写
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='order_id')
+                .col-sm-9
+                    input#order_id.col-xs-10.col-sm-5(type='number', name='order_id',style='display:none')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4

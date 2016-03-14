@@ -1,0 +1,41 @@
+//
+   Created by fy on 15-12-22.
+    编辑商品信息
+.row
+    .col-xs-12
+        iframe#myIframe(name='myIframe', width='0', height='0', style='display: none;')
+        form#stockForm.form-horizontal(method='post',role='form',action='#{action}',target='myIframe')
+            input#submit.hide(type='submit')
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='code')  商品名称
+                .col-sm-9
+                    input#code.col-xs-12.col-sm-7(type='text', name='code',placeholder='输入关键词（商品编号或商品名）')
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='bid')  进价
+                .col-sm-9
+                    input#bid.col-xs-12.col-sm-7(type='number', name='bid',placeholder='进价为必填字段，且不能为负数')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='bidSum')  入库数量
+                .col-sm-9
+                    input#bidSum.col-xs-12.col-sm-7(type='text', name='bidSum',placeholder='入库数量为必填字段')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='buyer')  采购人员
+                .col-sm-9
+                    input#buyer.col-xs-12.col-sm-7(type='text', name='buyer')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='remark')  备注
+                .col-sm-9
+                    input#remark.col-xs-12.col-sm-7(type='text', name='remark')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4

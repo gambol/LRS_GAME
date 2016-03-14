@@ -1,0 +1,38 @@
+//
+   Created by fy on 15-12-22.
+    编辑商品信息
+.row
+    .col-xs-12
+        iframe#myIframe(name='myIframe', width='0', height='0', style='display: none;')
+        form#editForm.form-horizontal(method='post',role='form',action='goods/updateGoodsInfo',target='myIframe')
+            input(type='hidden',name='id',value='#{goodsId}')
+            input(type='hidden',name='gName',id='gName',value='#{goodsName}')
+            span#errorInfo( style="margin-left: 366px; color: red;")
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='goodsName')  商品名称
+                .col-sm-9
+                    input#goodsName.col-xs-10.col-sm-5(type='text',onblur='validateGoodsName(this.value)' name='goodsName', value='#{goodsName}')
+                    span.has-warning
+                        span.help-block.col-xs-12.col-sm-reset.inline 商品名称长度在2到25之间
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='price')  售价
+                .col-sm-9
+                    input#price.col-xs-10.col-sm-5(type='text', name='price', value='#{price}')
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='unit')  商品单位
+                .col-sm-9
+                    input#unit.col-xs-10.col-sm-5(type='text', name='unit', value='#{unit}')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+                    span.has-warning
+                        span.help-block.col-xs-12.col-sm-reset.inline 商品单位长度在2到7之间
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='status')  是否有效
+                .col-sm-9
+                    select#status.col-xs-10.col-sm-5(type='text', name='status',value='#{status}')
+                        option(value='0', selected=status===0?'selected':undefined) 无效
+                        option(value='1', selected=status===1?'selected':undefined) 有效
+            .space-4

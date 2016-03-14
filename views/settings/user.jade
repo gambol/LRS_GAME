@@ -1,0 +1,103 @@
+//
+   Created by fy on 15-9-4.
+extends ../layout_nomenu
+
+block content
+    style.
+        .modal-footer {
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+        .bootbox-body {
+            margin-bottom: -20px;
+            height: 300px !important;
+            overflow: hidden !important;
+        }
+    .main-content
+        #breadcrumbs.breadcrumbs
+            script(type='text/javascript').
+                try {
+                    ace.settings.check('breadcrumbs', 'fixed')
+                } catch (e) {
+                }
+            ul.breadcrumb
+                li
+                    i.icon-home.home-icon
+                    a(href='#') Home
+                li
+                    a(href='#') Tables
+                li.active jqGrid plugin
+            // .breadcrumb
+            #nav-search.nav-search
+                form.form-search
+                    span.input-icon
+                        input#nav-search-input.nav-search-input(type='text', placeholder='Search ...', autocomplete='off')
+                        i.icon-search.nav-search-icon
+            // #nav-search
+        .page-content
+            .page-header
+            // /.page-header
+            .row
+                .col-xs-12
+                    // PAGE CONTENT BEGINS
+                    form#search-form-id
+                        table.searchTable
+                            tr
+                                td
+                                    | 工号：
+                                td
+                                    input.col-xs-10.col-sm-5(type='number' , name='code', placeholder='')
+                                td
+                                    | 姓名：
+                                td
+                                    input.col-xs-10.col-sm-5(type='text' , name='name', placeholder='')
+                                td
+                                    | 角色：
+                                td
+                                    //0：失效，１：注册中，２：审批拒绝，３：有效
+                                    select#status.col-xs-12.clo-sm-10(style="width:180px;", name='role',placeholder='')
+                                        option(value='') 全部用户
+                                        option(value='管理员') 管理员
+                                        option(value='裁判') 裁判
+                                        option(value='收银员') 收银员
+                                td
+                                td
+                                    button.btn.btn-info.btn-sm(type='submit',style="border-width:3px;")
+                                        i.icon-ok.bigger-110
+                                        |                                     搜索
+                                    button.btn.btn-sm(type='reset')
+                                        i.icon-undo.bigger-110
+                                        |                                     重置
+                    // TODO
+                    .alert.alert-info(style='display: none;')
+                        i.icon-hand-right
+                        |                     专业报名人数：
+                        span#zybmrs-id
+                        | 人
+                        button.close(data-dismiss='alert', style='display: none;')
+                            i.icon-remove
+                    button#btn-add-category-id.btn.btn-info.btn-sm(onclick="addUser(this)",style="margin-bottom:5px;width:180px;")
+                        i.icon-plus.bigger-110
+                        | 新建用户
+                    span &nbsp;&nbsp;&nbsp;&nbsp;
+                    button#btn-import-user-id.btn.btn-info.btn-sm(onclick="importUser(this)",style="margin-bottom:5px;width:180px;")
+                        i.icon-plus.bigger-110
+
+                    table#grid-table
+                    #grid-pager
+                    script(type='text/javascript').
+                        var $path_base = "/";//this will be used in gritter alerts containing images
+                    // PAGE CONTENT ENDS
+                // /.col
+            // /.row
+        // /.page-content
+    // /.main-content
+    style.
+        .modal-body > div {
+            height: 500px;
+            overflow: scroll;
+        }
+    script(type='text/javascript',src="javascripts/fragment/editUserInfo.js")
+    script(type='text/javascript',src="javascripts/user/list.js")
+    script(type="text/javascript") userPageInit();

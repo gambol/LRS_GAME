@@ -1,0 +1,37 @@
+.row
+    .col-xs-12
+        iframe#myIframe(name='myIframe', width='0', height='0', style='display: none;')
+        form#editForm1.form-horizontal(method='post',role='form',target='myIframe')
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='member_id')
+                .col-sm-9
+                    input#member_id.col-xs-10.col-sm-5(type='number', hidden='true', name='member_id',value='#{member_id}')
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='code')  会员编号
+                .col-sm-9
+                    input#code.col-xs-10.col-sm-5(type='number',readonly='true',  name='code',value='#{code}')
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='userName')  姓名
+                .col-sm-9
+                    input#userName.col-xs-10.col-sm-5(type='text',readonly='true',  name='userName',value='#{userName}')
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='accountCash')  现金账户充值金额
+                .col-sm-9
+                    input#accountCash.col-xs-10.col-sm-5(type='number', name='accountCash', value='0')
+                    span(style="line-height:30px;")
+                    | &nbsp;元
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='giftCash')  游戏账户充值金额
+                .col-sm-9
+                    input#giftCash.col-xs-10.col-sm-5(type='number', name='giftCash', value='0')
+                    span(style="line-height:30px;")
+                    | &nbsp;元
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+            .space-4

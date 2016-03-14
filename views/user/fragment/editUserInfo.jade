@@ -1,0 +1,58 @@
+//
+   Created by fy on 15-12-22.
+    编辑会员信息
+.row
+    .col-xs-12
+        iframe#myIframe(name='myIframe', width='0', height='0', style='display: none;')
+        form#editForm.form-horizontal(method='post',role='form',action='user/updateUserInfo',target='myIframe')
+            input(type='hidden',name='id', id='userId',value='#{userId}')
+            input(type='hidden',name='uName', id='uName',value='#{username}')
+            span#spanName(style='margin-left: 366px; color:red;')
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='username')  登陆账号
+                .col-sm-9
+                    input#username.col-xs-10.col-sm-5(type='text', name='username',onblur="userValidate(this.value)",value='#{username}')
+                    span.has-warning
+                        span.help-block.col-xs-12.col-sm-reset.inline 登陆账号长度必须在5到25位之间
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='realName')  员工姓名
+                .col-sm-9
+                    input#realName.col-xs-10.col-sm-5(type='text', name='realName',value='#{realName}')
+                    span.has-warning
+                        span.help-block.col-xs-12.col-sm-reset.inline 姓名长度必须在2到7之间
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='role')  角色
+                .col-sm-9
+                    select#role.col-xs-10.col-sm-5(type='text', name='role',selected='selected' value='#{role}')
+                        //option(value='#{role}',selected='selected') #{role}
+                        option(value='管理员',selected=role === "管理员" ? "selected" : undefined) 管理员
+                        option(value='裁判',selected=role === "裁判" ? "selected" : undefined) 裁判
+                        option(value='收银员',selected=role === "收银员" ? "selected" : undefined) 收银员
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='password')  请输入新密码
+                .col-sm-9
+                    input#password.col-xs-10.col-sm-5(type='text', name='password',value='#{password}')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+                    span.has-warning
+                        span.help-block.col-xs-12.col-sm-reset.inline 密码长度在6-25之间
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='password1')  请再次输入新密码
+                .col-sm-9
+                    input#password1.col-xs-10.col-sm-5(type='text', name='password1',value='#{password}')
+                    //span.help-inline.col-xs-12.col-sm-7
+                      span.middle 请填写数字
+                    span.has-warning
+                        span.help-block.col-xs-12.col-sm-reset.inline 密码长度在6-25之间
+            .space-4
+            .form-group
+                label.col-sm-3.control-label.no-padding-right(for='status')  是否有效
+                .col-sm-9
+                    select#status.col-xs-10.col-sm-5(type='text', name='status',value='#{status}')
+                        option(value='0', selected=status===0?'selected':undefined) 无效
+                        option(value='1', selected=status===1?'selected':undefined) 有效
+

@@ -1,0 +1,32 @@
+//
+   Created by Administrator on 2016/2/2 0002.
+style.
+    .beijing {
+        width: 60%;
+        height: 100%;
+        position: fixed;
+        top: 7%;
+        z-index: -1;
+        left: 20%;
+    }
+
+    .main-container:after {
+        background-color: #F7EEA3;
+    }
+
+    .day {
+        font-family: "华文琥珀";
+        font-size: 120px;
+        text-align: center;
+        /*text-shadow: -7px 2px 7px #006;*/
+        text-decoration: none;
+        color: rgb(255, 94, 0);
+        -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 5, 6, 1)));
+    }
+body
+    img.beijing(src='/pictures/shenfen/1.jpg')
+    .day
+        | 第
+        span #{day}天
+
+
